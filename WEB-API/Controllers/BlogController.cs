@@ -56,8 +56,19 @@ namespace WEB_API.Controllers
 
         // PUT api/<BlogController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public JsonResult Put(int? id, [FromBody] BlogDTO value)
         {
+            JsonResult result = new(new { });
+            if (!id.HasValue)
+            {
+                result.Value = new { status = 403, message = "Id is required" };
+                return result;
+            }
+             var _mapperBlog=_mapper.Map<BlogDTO, Blog>(value);
+            _service.Update(id.Value, _mapperBlog);
+            result.Value = new { status = 200, message = "blog successfully updated",blog=value};
+            return result;
+
         }
 
         // DELETE api/<BlogController>/5

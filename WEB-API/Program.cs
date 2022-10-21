@@ -21,7 +21,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<LexiconDBContext>();
 builder.Services.AddIdentity<User, IdentityRole>()
-
     .AddEntityFrameworkStores<LexiconDBContext>();
 builder.Services.AddScoped<IProductDal, EFProductDal>();
 builder.Services.AddScoped<IProductManager, ProductManager>();

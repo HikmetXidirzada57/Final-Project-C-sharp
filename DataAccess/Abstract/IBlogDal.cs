@@ -14,5 +14,7 @@ namespace DataAccess.Abstract
         Task<Blog> GetById(int id);
         Task<List<Blog>> GetBlogByCategory(int categoryId);
         Task<List<Blog>> GetRelatedBlogs(int blogId,int categoryId);
+        Task UpdateBlog(int id, Blog blog);
+
     }
 }

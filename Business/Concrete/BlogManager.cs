@@ -56,9 +56,9 @@ namespace Business.Concrete
             return await _dal.GetById(id);
         }
 
-        public void Update(Blog blog)
+        public async Task Update(int id, Blog blog)
         {
-            throw new NotImplementedException();
+            await _dal.UpdateBlog(id, blog);
         }
     }
 }

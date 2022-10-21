@@ -15,7 +15,7 @@ namespace Business.Abstract
         Task<List<Blog>>GetBlogsByCategory(int categoryId);
         Task<List<Blog>> GetBlogsRelated(int blogId, int categoryId);
         void Add(BlogDTO blog);
-        void Update(Blog blog);
+        Task Update(int id,Blog blog);
         void Delete(int id);
     }
 }

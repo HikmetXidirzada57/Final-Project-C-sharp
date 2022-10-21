@@ -35,5 +35,13 @@ namespace DataAccess.Concrete.EntityFramework
             LexiconDBContext content = new LexiconDBContext();
             return await content.Blogs.Include(b => b.BlogCategorys).Where(b => b.Id != blogId && b.BlogCategoryId == categoryId && !b.IsDeleted).ToListAsync();
         }
+
+        public async Task UpdateBlog(int id, Blog blog)
+        {
+            LexiconDBContext content = new LexiconDBContext();
+             //blog.Id = id;
+             content.Blogs.Update(blog); 
+            await content.SaveChangesAsync();
+        }
     }
 }

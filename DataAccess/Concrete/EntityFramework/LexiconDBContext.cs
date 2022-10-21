@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -14,7 +14,8 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
-            builder.UseSqlServer(@"Server=.\;Database=T110LexiconDb;Trusted_Connection=true;MultipleActiveResultSets=true");
+            //builder.UseSqlServer(@"Server=.\;Database=T110LexiconDb;Trusted_Connection=true;MultipleActiveResultSets=true");
+            builder.UseSqlServer("Data Source=SQL5102.site4now.net;Initial Catalog=db_a8e1a0_lexicon;User Id=db_a8e1a0_lexicon_admin;Password=Hikmet123");
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
